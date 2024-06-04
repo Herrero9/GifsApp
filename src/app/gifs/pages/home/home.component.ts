@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GifsService } from '../../services/gifs.service';
+import { Gif } from '../../interfaces/gifs';
 
 @Component({
   selector: 'app-home',  
@@ -8,6 +10,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class HomeComponent {
   
-  constructor() {}
+  constructor(private _gifsService: GifsService) {}
+
+  get gifs(): Gif[] {
+    return this._gifsService.gifsList;
+  }
   
  }
